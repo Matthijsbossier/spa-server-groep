@@ -6,9 +6,6 @@ const InfoSchema = new Schema({
     alert_info: String
 });
 
-const Info = mongoose.model('info', InfoSchema);
+// const Info = mongoose.model('info', InfoSchema);
 
-module.exports = {
-    Info: Info,
-    InfoSchema: InfoSchema
-}
+// module.exports = Info;
