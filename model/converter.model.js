@@ -19,4 +19,7 @@ const ConverterSchema = new Schema({
 const Converter = mongoose.model('converter', ConverterSchema);
 
 
-module.exports = Converter;
+module.exports = {
+    Converter: Converter,
+    ConverterSchema: ConverterSchema
+ }

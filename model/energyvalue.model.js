@@ -32,4 +32,7 @@ const EnergyValue = mongoose.model('energyvalue', EnergyValueSchema);
 // }).save();
 
 
-module.exports = EnergyValue;
+module.exports = {
+    EnergyValue: EnergyValue,
+    EnergyValueSchema: EnergyValueSchema
+}
