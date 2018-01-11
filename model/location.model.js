@@ -115,7 +115,7 @@ const location2 = new Location({
             }] 
         }]
     }]
-}).save();
+}); // .save();
 
 
 module.exports = Location;

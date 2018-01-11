@@ -43,15 +43,13 @@ routes.get('/locations', function(req, res){
      .then(() => Location.findById({_id: locationID}))
      .then((location) => res.send(location))
      .catch(next);
-
-     // save();
  });
 
  routes.delete('/locations/:id', function(req, res, next) {
      res.contentType('application/json');
-     const locationID = req.params._id;
+     const locationId = req.params.id;
 
-     Location.findByIdAndRemove(req.params._id, (err, todo) => {
+     Location.findByIdAndRemove(locationId, (err, todo) => {
          let response = {
              message: "Successfully deleted",
              //id: location._id
