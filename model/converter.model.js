@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const EnergyValueSchema = require('./energyvalue.model').EnergyValueSchema;
+const LocationSchema = require('./location.model').LocationSchema;
+const InfoSchema = require('./info.model').InfoSchema;
 
 
 const ConverterSchema = new Schema({
