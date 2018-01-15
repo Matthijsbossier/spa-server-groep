@@ -21,7 +21,4 @@ const ConverterSchema = new Schema({
 const Converter = mongoose.model('converter', ConverterSchema);
 
 
-module.exports = {
-    Converter: Converter,
-    ConverterSchema: ConverterSchema
- }
+module.exports = ConverterSchema

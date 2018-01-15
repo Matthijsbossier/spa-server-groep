@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ConverterSchema = require('./converter.model').ConverterSchema;
+const ConverterSchema = require('./converter.model');
 const EnergyValueSchema = require('./energyvalue.model').EnergyValueSchema;
 const InfoSchema = require('./info.model').InfoSchema;
 var today = new Date();

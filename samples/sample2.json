@@ -1,0 +1,17 @@
+{
+	"name": "4c16e24f-286d-4e6e-b4d1-c63bbb0303aa"
+	"ts": "2017-12-05T21:43:12"
+	"info":{
+			"energy": 3.4792531896286
+			"alert": null
+			}
+}
+
+{
+	"name": "4c16e24f-286d-4e6e-b4d1-c63bbb0303aa"
+	"ts": "2017-12-05T21:43:13"
+	"info":{
+			"energy": 3.4792531896286
+			"alert": "Slave Phase1 No Grid Error"
+			}
+}

@@ -2,6 +2,7 @@ var express = require('express');
 var routes = express.Router();
 var mongodb = require('../config/mongo.db');
 var Location = require('../model/location.model');
+var Converter = require('../model/converter.model');
 
 
 routes.get('/locations', function(req, res){
@@ -15,10 +16,10 @@ routes.get('/locations', function(req, res){
 
  routes.get('/locations/:id', function (req, res, next) {
      res.contentType('application/json');
-     const energyvalueID = req.params.id;
+     const locationID = req.params.id;
 
 
-     Location.findOne({_id : energyvalueID})
+     Location.findOne({_id : locationID})
      .then ((values) => {
          res.send(values);
      })
@@ -58,6 +59,21 @@ routes.get('/locations', function(req, res){
          res.status(200).send(response);
      });
  });
+
+// Add a converter to a location
+
+routes.put('/locations/:id/converter', function (req, res) {
+    var locationId = req.params.id;
+    var body = req.body;
+    Location.findOneAndUpdate({
+        _id: locationId
+    }, {$push: {converters: body}}).then(function (location) {
+        res.status(200).json({message: "Converter successfully added to the location"});
+    }).catch((error) => {
+        res.status(400).json(error);
+    })
+});
+
 
 
 module.exports = routes;
