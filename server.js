@@ -31,7 +31,7 @@ app.set('env', (process.env.ENV | 'development'))
 // Installeer Morgan als logger.
 app.use(logger('dev'));
 
-// app.disable('etag');
+app.disable('etag');
 
 // CORS headers
 app.use(function (req, res, next) {
