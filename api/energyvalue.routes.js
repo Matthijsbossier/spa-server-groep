@@ -13,9 +13,27 @@ routes.get('/locations', function(req, res){
         .catch((error) => res.status(401).json(error));
 });
 
+// routes.get('/locations/:id', function(req, res, next){
+//     res.contentType('application/json');
+//     const LocationName = req.params.id;
+//     Location.find({name: LocationName})
+//     //Location.findOne({name: LocationName})
+//     .then((values) => {
+//         res.status(200).json(values);
+//     })
+//     .catch(next)
+
+// });
+
+
+// routes.get('/energyvalues/:id', function (req, res, next) {
+//     res.contentType('application/json');
+//     const energyvalueID = req.params.id;
+
  routes.get('/locations/:id', function (req, res, next) {
      res.contentType('application/json');
      const energyvalueID = req.params.id;
+
 
      Location.findOne({_id : energyvalueID})
      .then ((values) => {
