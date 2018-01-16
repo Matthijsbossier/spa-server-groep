@@ -76,18 +76,18 @@ routes.put('/locations/:id/converter', function (req, res) {
 
 // Add a energyvalue to a converter
 
-routes.put('/locations/:id/converter/energyvalue', function (req, res) {
+routes.put('/locations/:id/:converterid/energyvalue', function (req, res) {
     var locationId = req.params.id;
+    var converterId = req.params.converterid;
     var body = req.body;
     Location.findOneAndUpdate({
-        _id: locationId
-    }, {$push: {energyvalue: body}}).then(function (location) {
+        _id: locationId,
+        converter_id: converterId
+    }, {$push: {energyValue: body}}).then(function (location) {
         res.status(200).json({message: "Energyvalue successfully added to the converter"});
     }).catch((error) => {
         res.status(400).json(error);
     })
 });
-
-
 
 module.exports = routes;
