@@ -64,20 +64,20 @@ const location1 = new Location({
         energyValue: [{
             converter_id: "4c16e24f-286d-4e6e-b4d1-c63bbb0303aa",
             timestamp: ('2017-05-12T21:43:12'),
-            info: [{
+            info: {
                 energyvalue: 3.4792531896286,
                 alert_info: "Slave Phase1 No Grid Error" 
-            }] 
+            }
         }, {
             converter_id: "4c16e24f-286d-4e6e-b4d1-c63bbb0303aa",
             timestamp: ('2017-12-05T21:43:13'),
-            info: [{
+            info: {
                 energyvalue: 3.4792531896286,
                 alert_info: null 
-            }] 
+            }
         }]
     }]
-}); //.save();
+})//.save();
 
 const location2 = new Location({
     name: 'Avans Hogeschoollaan',
@@ -102,20 +102,20 @@ const location2 = new Location({
         energyValue: [{
             converter_id: "4c16e24f-286d-4e6e-b4d1-c63bbb0303aa",
             timestamp: ('2017-05-12T21:43:12'),
-            info: [{
+            info: {
                 energyvalue: 3.4792531896286,
                 alert_info: "Slave Phase1 No Grid Error" 
-            }] 
+            }
         }, {
             converter_id: "4c16e24f-286d-4e6e-b4d1-c63bbb0303aa",
             timestamp: ('2017-12-05T21:43:13'),
-            info: [{
+            info: {
                 energyvalue: 3.4792531896286,
                 alert_info: null 
-            }] 
+            }
         }]
     }]
-}); // .save();
+})//.save();
 
 
 module.exports = Location;

@@ -8,7 +8,4 @@ const InfoSchema = new Schema({
 
 const Info = mongoose.model('info', InfoSchema);
 
-module.exports = {
-    Info: Info,
-    InfoSchema: InfoSchema
-}
+module.exports = InfoSchema
