@@ -77,17 +77,45 @@ routes.put('/locations/:id/converter', function (req, res) {
 // Add a energyvalue to a converter
 
 routes.put('/locations/:id/:converterid/energyvalue', function (req, res) {
-    var locationId = req.params.id;
-    var converterId = req.params.converterid;
-    var body = req.body;
-    Location.findOneAndUpdate({
-        _id: locationId,
-        converter_id: converterId
-    }, {$push: {energyValue: body}}).then(function (location) {
-        res.status(200).json({message: "Energyvalue successfully added to the converter"});
-    }).catch((error) => {
-        res.status(400).json(error);
+    const locationId = req.params.id;
+    const converterId = req.params.converterid;
+    const body = req.body;
+
+    Location.findOne({
+        _id: locationId
     })
+    .then(location => {
+        console.log(location);
+        var converter = location.converters.forEach(item => {
+            console.log('item._id = ' + item._id + ' convID = ' + converterId);
+            if(item._id.toString() === converterId) {
+                console.log("_id gevonden");
+                item.energyValue.push(body);
+            } else {
+                console.log('geen match');
+            }
+        })
+        return location;    
+    })
+    .then(location => {
+        console.log("location ontvangen: " + location);
+        res.status(200).json({message: "Energyvalue successfully added to the converter"})
+        location.save();
+    })
+    .catch(error => {
+        console.log("error " + error);
+        
+    })
+
+    // Location.findOneAndUpdate({
+    //     _id: locationId,
+    //     converter: {_id: converterId }
+    // }, {$push: {energyValue: body}})
+    // .then(function (location) {
+    //     res.status(200).json({message: "Energyvalue successfully added to the converter"});
+    // }).catch((error) => {
+    //     res.status(400).json(error);
+    // })
 });
 
 module.exports = routes;
