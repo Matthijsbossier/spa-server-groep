@@ -42,7 +42,7 @@ const Location = mongoose.model('location', LocationSchema);
 // }).save();
 
 const location1 = new Location({
-    name: 'Avans Beukenlaan',
+    name: 'Avans Beukenlaan Test',
     street: 'Beukenlaan',
     houseNumber: 1,
     city: 'Bavel',
