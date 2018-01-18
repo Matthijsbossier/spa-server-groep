@@ -108,6 +108,8 @@ routes.put('/locations/:id/:converterid/energyvalue', function (req, res) {
     })
 });
 
+// Delete an energyvalue from a converter
+
 routes.delete('/locations/:id/:converterid/:energyvalueid', function (req, res) {
         const locationId = req.params.id;
         const converterId = req.params.converterid;
@@ -145,5 +147,40 @@ routes.delete('/locations/:id/:converterid/:energyvalueid', function (req, res) 
             
         })
     });
+
+// Delete a converter
+
+routes.delete('/locations/:id/:converterid', function (req, res) {
+    const locationId = req.params.id;
+    const converterId = req.params.converterid;
+    const body = req.body;
+
+    Location.findOne({
+        _id: locationId
+    })
+    .then(location => {
+        console.log(location);
+        var converter = location.converters.forEach(item => {
+            console.log(item);
+            console.log('item._id = ' + item._id + ' converterId = ' + converterId);
+            if(item._id.toString() === converterId) {
+                console.log('converter ontvangen: ' + item);
+                    location.converters.remove(item);
+            } else {
+                console.log('geen match');
+            }
+        })
+        return location;    
+    })
+    .then(location => {
+        console.log("location ontvangen: " + location);
+        res.status(200).json({message: "Energyvalue successfully deleted"})
+        location.save();
+    })
+    .catch(error => {
+        console.log("error " + error);
+        
+    })
+});
 
 module.exports = routes;
